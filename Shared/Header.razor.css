@@ -1,0 +1,22 @@
+﻿.header {
+    top: 0;
+    width: 100%;
+    color: white;
+    z-index: 100;
+    display: flex;
+    position: fixed;
+    min-height: 48px;
+    padding: 7px 32px;
+    align-items: center;
+    flex-flow: row nowrap;
+    box-sizing: border-box;
+    justify-content: space-around;
+    background: linear-gradient(to right, #006CD9, #00A8F9);
+}
+
+::deep .app-logo {
+    gap: 10px;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+}

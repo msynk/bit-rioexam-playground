@@ -1,0 +1,56 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<div class="page-container">
+    <section class="question-section">
+        <BitTypography Variant="BitTypographyVariant.Caption">
+            This question has additional information <BitButton Class="question-section-header-btn" ButtonStyle="BitButtonStyle.Standard">click here</BitButton> to view it
+        </BitTypography>
+        <div class="divider"></div>
+        <BitChoiceGroup TItem="BitChoiceGroupOption<string>"
+                        TValue="string"
+                        DefaultValue="@("A")"
+                        Label="Q) &nbsp; The three states of matter are solid, liquid and gas. Which of the following statement is/are true about them?">
+            <BitChoiceGroupOption Class="question-item" Value="@("A")" Text="A) Solids and liquids have viscosity as a common property" />
+            <BitChoiceGroupOption Class="question-item" Value="@("B")" Text="B) The molecules in solid state do not have transnational motion." />
+            <BitChoiceGroupOption Class="question-item" Value="@("C")" Text="C) Gases cannot be converted into solids without passing through the liquid phase." />
+            <BitChoiceGroupOption Class="question-item" Value="@("D")" Text="D) Solids and liquids have vapour pressure as a common property." />
+        </BitChoiceGroup>
+    </section>
+
+    <section class="result-section">
+        <BitAccordion Class="section-acd" DefaultIsExpanded="true">
+            <HeaderTemplate Context="isExpanded">
+                <BitTypography Variant="BitTypographyVariant.Inherit" Class="result-header">
+                    Section 1 &nbsp; <BitIcon IconName="@(isExpanded ? BitIconName.ChevronUp : BitIconName.ChevronDown)" />
+                </BitTypography>
+            </HeaderTemplate>
+            <ChildContent>
+                <div class="buttons-wrapper">
+                    @for (int i = 1; i < 16; i++)
+                    {
+                        var num = i;
+                        <BitButton ButtonStyle="BitButtonStyle.Standard" Class="result-btn">@num</BitButton>
+                    }
+                </div>
+            </ChildContent>
+        </BitAccordion>
+        <BitAccordion Class="section-acd" DefaultIsExpanded="true">
+            <HeaderTemplate Context="isExpanded">
+                <BitTypography Variant="BitTypographyVariant.Inherit" Class="result-header">
+                    Section 2 &nbsp; <BitIcon IconName="@(isExpanded ? BitIconName.ChevronUp : BitIconName.ChevronDown)" />
+                </BitTypography>
+            </HeaderTemplate>
+            <ChildContent>
+                <div class="buttons-wrapper">
+                    @for (int i = 1; i < 16; i++)
+                    {
+                        var num = i;
+                        <BitButton ButtonStyle="BitButtonStyle.Standard" Class="result-btn">@num</BitButton>
+                    }
+                </div>
+            </ChildContent>
+        </BitAccordion>
+    </section>
+</div>
