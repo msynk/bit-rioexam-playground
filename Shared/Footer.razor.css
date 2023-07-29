@@ -30,18 +30,3 @@
         flex-flow: column;
     }
 }
-
-::deep .footer-btn {
-    /*    height: 40px;
-    color: #0F84DB;
-    font-weight: bold;
-    padding: 5px 25px;
-    border-radius: 30px;
-    border-color: lightgray;*/
-}
-
-    ::deep .footer-btn.selected-btn {
-        /*color: white;
-    border: none;
-    background: linear-gradient(to right, #006CD9, #00A8F9);*/
-    }
