@@ -1,11 +1,21 @@
 ﻿@inherits LayoutComponentBase
 
-<Header />
+<Header OnToggleMenu=HandleToggleMenu />
 
 <main>
-    <article>
-        @Body
-    </article>
+    <CascadingValue Name="RegisterHandler" Value="RegisterHandler">
+        <article>
+            @Body
+        </article>
+    </CascadingValue>
 
     <Footer />
 </main>
+
+@code {
+    private List<Action> handlers = new List<Action>();
+
+    private void HandleToggleMenu() => handlers.ForEach(a => a());
+
+    private void RegisterHandler(Action handler) => handlers.Add(handler);
+}

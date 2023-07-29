@@ -1,0 +1,41 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<div class="page-container">
+    <section class="question-section">
+        <BitTypography Variant="BitTypographyVariant.H6">Question 7 of 15</BitTypography>
+        <BitTypography Variant="BitTypographyVariant.Caption">
+            This question has additional information <BitButton Class="question-section-header-btn" ButtonStyle="BitButtonStyle.Standard">click here</BitButton> to view it
+        </BitTypography>
+        <div class="divider"></div>
+        <BitChoiceGroup TItem="BitChoiceGroupOption<string>"
+                        TValue="string"
+                        DefaultValue="@("A")"
+                        Label="Q) The three states of matter are solid, liquid and gas. Which of the following statement is/are true about them?">
+            <BitChoiceGroupOption Class="question-item" Value="@("A")" Text="A) Solids and liquids have viscosity as a common property" />
+            <BitChoiceGroupOption Class="question-item" Value="@("B")" Text="B) The molecules in solid state do not have transnational motion." />
+            <BitChoiceGroupOption Class="question-item" Value="@("C")" Text="C) Gases cannot be converted into solids without passing through the liquid phase." />
+            <BitChoiceGroupOption Class="question-item" Value="@("D")" Text="D) Solids and liquids have vapor pressure as a common property." />
+        </BitChoiceGroup>
+    </section>
+
+    <section class="result-section">
+        <SectionsAndQuestions />
+    </section>
+
+    <BitPanel HeaderText="Questions Sections" Class="sections-panel" @bind-IsOpen=isPanelOpen>
+        <SectionsAndQuestions />
+    </BitPanel>
+</div>
+
+@code {
+    [CascadingParameter(Name = "RegisterHandler")] private Action<Action> RegisterHandler { get; set; } = default!;
+
+    private bool isPanelOpen;
+
+    protected override void OnInitialized()
+    {
+        RegisterHandler(() => isPanelOpen = !isPanelOpen);
+    }
+}
