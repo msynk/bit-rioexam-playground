@@ -1,14 +1,13 @@
 ﻿header {
     top: 0;
     width: 100%;
-    color: white;
     height: 55px;
     z-index: 100;
     display: flex;
     position: fixed;
     padding: 8px 32px;
     align-items: center;
-    background: linear-gradient(to right, #006CD9, #00A8F9);
+    border-bottom: 1px solid #ccc;
 }
 
 @media screen and (max-width: 720px) {
